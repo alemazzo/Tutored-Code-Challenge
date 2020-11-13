@@ -1,55 +1,35 @@
-
-def test(massimo, punteggi):
-    if len(punteggi) == 0 or massimo == 0:
+def fun(massimo, punteggi):
+    ERROR = None
+    if len(punteggi) == 0:
+        if massimo == 0:
+            return 0
+        else:
+            return ERROR
+    if massimo == 0:
         return 0
     elif punteggi[0] > massimo:
-        raise Exception()
-    elif len(punteggi) == 1:
-        if punteggi[0] % massimo != 0:
-            raise Exception()
-        else:
-            return int(massimo / punteggi[0])
-    else:
-        index = 0
-        while(massimo > 0):
-            massimo -= punteggi[0]
-            if massimo < 0:
-                raise Exception()
-            if massimo >= punteggi[1]:
-                try:
-                    res = test(
-                        massimo - (punteggi[0]),
-                        punteggi[1: len(punteggi)]
-                    )
-                    index += res + 1
-                except:
-                    pass
-        """
-        while(punteggi[0] <= massimo):
-            if punteggi[0] <= massimo:
-                index += 1
-            else:
-                raise Exception()
-            massimo -= punteggi[0]
+        return ERROR
 
-            try:
-                res = test(massimo, punteggi[1: len(punteggi)])
-                index += res
-            except:
-                index -= 1
-                pass
-        """
-        #print(f"P = {punteggi[0]} - Index = {index}")
-    return index
+    counter = 0
+    for i in range(0, int(massimo/punteggi[0]) + 1):
+        # Ci sarà almeno un ciclo
+        # Per ogni possibile presa dell elemento
+        # Ne ho presi i
+        counter += 1
+        newMassimo = massimo - (i * punteggi[0])
 
+        # Quante combinazioni ci sono senza questo elemento ?
+        comb = fun(newMassimo, punteggi[1:len(punteggi)])
 
-def fun(number, punteggi):
-    try:
-        return test(number, sorted(punteggi))
-    except:
-        return 0
+        # Se senza questo elemento e con i restanti valori ci sono combinazioni
+        if comb is ERROR:
+            counter -= 1
+
+    if counter == 0:
+        return ERROR
+    return counter
 
 
 n, m = [int(x) for x in input().split()]
 punteggi = [int(x) for x in input().split()]
-print(fun(n, punteggi))
+print(fun(n, sorted(punteggi)))
