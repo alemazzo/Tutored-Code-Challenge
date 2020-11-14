@@ -23,7 +23,6 @@ La funzione deve fornire un intero, rappresentante il massimo numero di pacchett
 def fun(cost, sale, minimum, budget):
     packNum = 0
     while budget > 0:
-        # compro
         if cost > budget:
             break
         packNum += 1
@@ -34,5 +33,5 @@ def fun(cost, sale, minimum, budget):
     return packNum
 
 
-c, s, m, b = str(input()).split()
-print(fun(int(c), int(s), int(m), int(b)))
+cost, sale, minimum, b = str(input()).split()
+print(fun(int(cost), int(sale), int(minimum), int(b)))
