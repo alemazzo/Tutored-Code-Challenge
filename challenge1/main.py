@@ -20,17 +20,17 @@ La funzione deve fornire un intero, rappresentante il massimo numero di pacchett
 """
 
 
-def fun(c, s, m, b):
+def fun(cost, sale, minimum, budget):
     packNum = 0
-    while b > 0:
+    while budget > 0:
         # compro
-        if c > b:
+        if cost > budget:
             break
         packNum += 1
-        b -= c
-        c -= s
-        if c < m:
-            c = m
+        budget -= cost
+        cost -= sale
+        if cost < minimum:
+            cost = minimum
     return packNum
 
 
