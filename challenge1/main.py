@@ -33,5 +33,5 @@ def fun(cost, sale, minimum, budget):
     return packNum
 
 
-cost, sale, minimum, b = str(input()).split()
-print(fun(int(cost), int(sale), int(minimum), int(b)))
+cost, sale, minimum, budget = str(input()).split()
+print(fun(int(cost), int(sale), int(minimum), int(budget)))
