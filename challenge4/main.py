@@ -46,8 +46,8 @@ def fun(maximum, scores):
 
     actualValue = scores[0]
 
-    if actualValue > maximum:
-        return Error
+    # if actualValue > maximum:
+    #    return Error
 
     counter = 0
     for length in range(0, int(maximum / actualValue) + 1):
@@ -67,7 +67,8 @@ def fun(maximum, scores):
 
 n, m = [int(x) for x in input().split()]
 scores = [int(x) for x in input().split()]
-res = fun(n, sorted(scores))
+
+res = fun(n, sorted(scores, reverse=True))
 print(0 if res is None else res)
 
 
