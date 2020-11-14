@@ -1,38 +1,38 @@
 
-def fun(giorni):
-    decrementi = 0
-    incrementi = 0
-    invariati = 0
+def fun(days):
+    reductions = 0
+    increments = 0
+    neutral = 0
 
-    for g in giorni:
-        if g == 0:
-            invariati += 1
-        elif g > 0:
-            incrementi += 1
+    for day in days:
+        if day == 0:
+            neutral += 1
+        elif day > 0:
+            increments += 1
         else:
-            decrementi += 1
+            reductions += 1
 
-    decrementi /= len(giorni)
-    incrementi /= len(giorni)
-    invariati /= len(giorni)
+    reductions /= len(days)
+    increments /= len(days)
+    neutral /= len(days)
 
-    incrementi = round(incrementi * 100, 1)
-    if int(incrementi) == incrementi:
-        incrementi = int(incrementi)
+    increments = round(increments * 100, 1)
+    if int(increments) == increments:
+        increments = int(increments)
 
-    decrementi = round(decrementi * 100, 1)
-    if int(decrementi) == decrementi:
-        decrementi = int(decrementi)
+    reductions = round(reductions * 100, 1)
+    if int(reductions) == reductions:
+        reductions = int(reductions)
 
-    invariati = round(invariati * 100, 1)
-    if int(invariati) == invariati:
-        invariati = int(invariati)
+    neutral = round(neutral * 100, 1)
+    if int(neutral) == neutral:
+        neutral = int(neutral)
 
-    print(incrementi)
-    print(decrementi)
-    print(invariati)
+    print(increments)
+    print(reductions)
+    print(neutral)
 
 
 n = int(input())
-giorni = [int(x) for x in input().split()]
-fun(giorni)
+days = [int(x) for x in input().split()]
+fun(days)
